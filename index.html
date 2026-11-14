@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2f7f7a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="VS Staten" />
+    <title>VS Staten Oefenen</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">48 staten - zonder Alaska en Hawaii</p>
+          <h1>VS staten oefenen</h1>
+          <p class="player-greeting" id="playerGreeting">Wie speelt er vandaag?</p>
+        </div>
+        <form class="player-form" id="playerForm">
+          <label>
+            <span>Speler</span>
+            <input id="playerNameInput" type="text" autocomplete="name" maxlength="24" placeholder="Naam" />
+          </label>
+          <button type="submit">OK</button>
+        </form>
+        <div class="score-panel" aria-live="polite">
+          <span id="progressText">Gedaan 0/0</span>
+          <strong id="scoreText">Direct goed 0</strong>
+          <span id="streakText">Nog lastig 0</span>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <aside class="side-panel" aria-label="Staten kiezen">
+          <section class="panel-block">
+            <div class="block-head">
+              <h2>Oefen per 10</h2>
+              <span id="selectedCount">10 gekozen</span>
+            </div>
+            <div class="batch-grid" id="batchGrid"></div>
+          </section>
+
+          <section class="panel-block state-picker">
+            <div class="block-head">
+              <h2>Eigen set</h2>
+              <div class="small-actions">
+                <button type="button" class="ghost-btn" id="selectAllBtn">Alles</button>
+                <button type="button" class="ghost-btn" id="clearBtn">Leeg</button>
+              </div>
+            </div>
+            <label class="search-box">
+              <span>Zoek</span>
+              <input id="searchInput" type="search" autocomplete="off" placeholder="bijv. Texas" />
+            </label>
+            <div class="state-list" id="stateList"></div>
+          </section>
+        </aside>
+
+        <section class="play-panel" aria-label="Spel">
+          <div class="quiz-bar">
+            <div class="game-actions">
+              <div class="mode-control" role="radiogroup" aria-label="Oefenmodus">
+                <label>
+                  <input type="radio" name="practiceMode" value="click" checked />
+                  <span>Klikken</span>
+                </label>
+                <label>
+                  <input type="radio" name="practiceMode" value="type" />
+                  <span>Typen</span>
+                </label>
+              </div>
+              <label class="toggle-control">
+                <input id="labelToggle" type="checkbox" checked />
+                <span>Afkortingen</span>
+              </label>
+              <button type="button" class="primary-btn" id="startBtn">Start ronde</button>
+              <button type="button" class="secondary-btn" id="shuffleBtn">Nieuwe volgorde</button>
+              <button type="button" class="secondary-btn repeat-btn is-hidden" id="repeatBtn">
+                Herhaal moeilijke staten
+              </button>
+            </div>
+            <div class="question-area">
+              <p class="round-label" id="roundLabel">Klaar voor een ronde?</p>
+              <h2 id="promptText">Kies klikken of typen en ga ervoor.</h2>
+              <form class="typing-form" id="typingForm">
+                <input
+                  id="typedAnswer"
+                  type="text"
+                  autocomplete="off"
+                  aria-label="Staat of afkorting"
+                  placeholder="Staat of afkorting"
+                  disabled
+                />
+                <button type="submit" id="typingSubmit" disabled>Controleer</button>
+                <span id="typingMessage" aria-live="polite"></span>
+              </form>
+            </div>
+          </div>
+
+          <div class="map-shell">
+            <div class="map-scroll" aria-label="Klikbare kaart van de Verenigde Staten">
+              <div class="real-map" id="mapGrid">
+                <div class="map-loading">Kaart laden...</div>
+              </div>
+            </div>
+          </div>
+
+          <footer class="selection-strip">
+            <span id="selectionText">Set 1 staat klaar.</span>
+            <div class="selected-tags" id="selectedTags"></div>
+          </footer>
+        </section>
+      </section>
+      <footer class="powered-by">Powered by <strong>Domein Stam</strong></footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

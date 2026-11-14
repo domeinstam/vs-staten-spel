@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#2f7f7a"/>
+  <path fill="#f4d66f" d="M104 195h69v-51h88v44h78v-31h68v78h-45v55h-62v54h-86v-48h-75v-42h-35z"/>
+  <path fill="#ffffff" d="M127 372h258v28H127z"/>
+  <text x="256" y="286" fill="#1f2c34" font-family="Arial, sans-serif" font-size="92" font-weight="800" text-anchor="middle">US</text>
+</svg>
